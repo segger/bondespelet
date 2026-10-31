@@ -1,0 +1,29 @@
+project_id = "bondespelet"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://127.0.0.1:5173"]
+enable_signup = false
+enable_anonymous_sign_ins = false
+
+[functions.game-action]
+# The handler verifies the user token with Auth before using its admin client.
+# This also supports projects using the newer asymmetric signing keys.
+verify_jwt = false
